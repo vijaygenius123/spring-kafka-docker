@@ -1,5 +1,6 @@
 package com.vijaygenius123.learning.springkafkadocker;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +9,9 @@ public class KafkaProducer {
 
     private static final String TOPIC = "my_topic";
 
-    private KafkaTemplate<String, String> kafkaTemplate;
+    @Autowired
+    private  KafkaTemplate<String, String> kafkaTemplate;
+
 
     public void writeMessage(String message){
         this.kafkaTemplate.send(TOPIC, message);

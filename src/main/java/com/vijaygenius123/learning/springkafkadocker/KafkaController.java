@@ -1,5 +1,6 @@
 package com.vijaygenius123.learning.springkafkadocker;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +13,8 @@ public class KafkaController {
         this.producer = producer;
     }
 
-    public void writeMessageToTopic(@RequestParam("message")String message){
+    @PostMapping("/publish")
+    public void writeMessageToTopic(@RequestParam("message") String message){
         this.producer.writeMessage(message);
     }
 }

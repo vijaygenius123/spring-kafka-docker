@@ -1,0 +1,6 @@
+
+### Send Message
+POST http://localhost:8080/publish
+Content-Type: application/x-www-form-urlencoded
+
+message=Hi World
